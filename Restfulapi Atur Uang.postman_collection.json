@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "f844c9ea-dfe9-4253-9d04-2dca2ca2023d",
+		"name": "Restfulapi Atur Uang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autentikasi",
+			"item": [
+				{
+					"name": "Daftar Pengguna",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "ariqi",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ariqi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password1",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/daftar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"daftar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Masuk Pengguna",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ariqi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234567890",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/masuk",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"masuk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profil Pengguna",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/profil",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profil"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ganti Password Pengguna",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "passwordlama",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "passwordbaru1",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "passwordbaru2",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/gantipassword",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"gantipassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Passwod Pengguna",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ariqi@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/kirimpermintaanresetpassword",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"kirimpermintaanresetpassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Kelola Keuangan",
+			"item": [
+				{
+					"name": "Lihat Uang",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/lihatuang/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"lihatuang",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Pemasukan / Pengeluaran",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jumlahcatatan",
+									"value": "1000000",
+									"type": "text"
+								},
+								{
+									"key": "jeniscatatan",
+									"value": "PENGELUARAN",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pemasukanpengeluaran",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pemasukanpengeluaran"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoint Utama",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
