@@ -36,4 +36,5 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     Route::get('/lihatuang/{id}', [UtamaController::class, 'show']);
     Route::post('/pemasukanpengeluaran', [UtamaController::class, 'store']);
+    Route::get('/resetcatatan/{id}', [UtamaController::class, 'destroy']);
 });

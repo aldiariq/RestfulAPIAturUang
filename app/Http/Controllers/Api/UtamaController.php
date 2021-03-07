@@ -200,6 +200,50 @@ class UtamaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $datauang = Uang::where('user_id', $id)->first();
+        $datauang->jumlahuang = 0;
+        $datauang->save();
+
+        $datacatatan = Catatan::where('user_id', $id);
+        $datacatatan->delete();
+
+        if ($datauang && $datacatatan) {
+            $datacatatan = array(
+                'jumlahcatatan' => 0,
+                'jeniscatatan' => 'PEMASUKAN',
+                'user_id' => $id
+            );
+
+            $catatanawal = Catatan::create($datacatatan);
+
+            if ($catatanawal) {
+                $keterangan = array(
+                    'berhasil' => true,
+                    'pesan' => "Berhasil Mereset Catatan"
+                );
+    
+                return response()->json([
+                    $keterangan, 200
+                ]);
+            }else {
+                $keterangan = array(
+                    'berhasil' => false,
+                    'pesan' => "Gagal Mereset Catatan"
+                );
+    
+                return response()->json([
+                    $keterangan, 401
+                ]);
+            }
+        }else {
+            $keterangan = array(
+                'berhasil' => false,
+                'pesan' => "Gagal Mereset Catatan"
+            );
+
+            return response()->json([
+                $keterangan, 401
+            ]);
+        }
     }
 }
