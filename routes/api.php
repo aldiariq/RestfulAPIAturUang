@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('/profil', [AuthController::class, 'profil']);
     Route::get('/keluar', [AuthController::class, 'keluar']);
 
-    Route::get('/lihatuang/{id}', [UtamaController::class, 'show']);
+    Route::get('/lihatuang', [UtamaController::class, 'show']);
     Route::post('/pemasukanpengeluaran', [UtamaController::class, 'store']);
-    Route::get('/resetcatatan/{id}', [UtamaController::class, 'destroy']);
+    Route::get('/resetcatatan', [UtamaController::class, 'destroy']);
 });

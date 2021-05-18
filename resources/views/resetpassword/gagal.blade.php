@@ -123,6 +123,10 @@ body {
     $(window).on('load', function() {
         $('#myModal').modal('show');
     });
+
+	$("#myModal").on('hide.bs.modal', function () {
+        closeMe();
+    });
     
     function closeMe(){
 	    window.opener = self;

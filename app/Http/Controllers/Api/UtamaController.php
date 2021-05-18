@@ -38,20 +38,27 @@ class UtamaController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = $request->user()->id;
+
         $validasiInputan = FacadesValidator::make($request->all(), [
             'jumlahcatatan' => 'required',
             'jeniscatatan' => 'required|in:PEMASUKAN,PENGELUARAN',
-            'user_id' => 'required'
         ]);
 
         if ($validasiInputan) {
-            $datauang = Uang::where('user_id', $request->user_id)->first();
+            $datauang = Uang::where('user_id', $user_id)->first();
 
             if ($request->jeniscatatan == "PEMASUKAN") {
                 $datauang->jumlahuang = $datauang->jumlahuang + $request->jumlahcatatan;
 
                 if ($datauang->save()) {
-                    $simpancatatan = Catatan::create($request->all());
+                    $datacatatan = array(
+                        'jumlahcatatan' => $request->jumlahcatatan,
+                        'jeniscatatan' => $request->jeniscatatan,
+                        'user_id' => $user_id
+                    );
+
+                    $simpancatatan = Catatan::create($datacatatan);
 
                     if ($simpancatatan) {
                         $keterangan = array(
@@ -97,7 +104,13 @@ class UtamaController extends Controller
                     $datauang->jumlahuang = $datauang->jumlahuang - $request->jumlahcatatan;
 
                     if ($datauang->save()) {
-                        $simpancatatan = Catatan::create($request->all());
+                        $datacatatan = array(
+                            'jumlahcatatan' => $request->jumlahcatatan,
+                            'jeniscatatan' => $request->jeniscatatan,
+                            'user_id' => $user_id
+                        );
+
+                        $simpancatatan = Catatan::create($datacatatan);
 
                         if ($simpancatatan) {
                             $keterangan = array(
@@ -150,11 +163,11 @@ class UtamaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-
-        $datauang = Uang::where('user_id', $id)->get();
-        $datacatatan = Catatan::where('user_id', $id)->get();
+        $user_id = $request->user()->id;
+        $datauang = Uang::where('user_id', $user_id)->get();
+        $datacatatan = Catatan::where('user_id', $user_id)->get();
 
         $keterangan = array(
             'berhasil' => true,
@@ -197,20 +210,21 @@ class UtamaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $datauang = Uang::where('user_id', $id)->first();
+        $user_id = $request->user()->id;
+        $datauang = Uang::where('user_id', $user_id)->first();
         $datauang->jumlahuang = 0;
         $datauang->save();
 
-        $datacatatan = Catatan::where('user_id', $id);
+        $datacatatan = Catatan::where('user_id', $user_id);
         $datacatatan->delete();
 
         if ($datauang && $datacatatan) {
             $datacatatan = array(
                 'jumlahcatatan' => 0,
                 'jeniscatatan' => 'PEMASUKAN',
-                'user_id' => $id
+                'user_id' => $user_id
             );
 
             $catatanawal = Catatan::create($datacatatan);

@@ -10,33 +10,28 @@
 			"item": [
 				{
 					"name": "Daftar Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "nama",
-									"value": "ariqi",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "ariqi@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password1",
-									"value": "12345678",
-									"type": "text"
-								},
-								{
-									"key": "password2",
-									"value": "12345678",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"aldi\",\n    \"email\": \"aldi@gmail.com\",\n    \"password1\": \"12345678\",\n    \"password2\": \"12345678\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/daftar",
@@ -58,23 +53,28 @@
 				},
 				{
 					"name": "Masuk Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "ariqi@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "1234567890",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"aldi@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/masuk",
@@ -96,15 +96,27 @@
 				},
 				{
 					"name": "Profil Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTRmNWI4OTIyMmRjOTI0NTBmMmViODUzZTEyOTA0OGYxZWRmYzM3NmNkYmFiYmUyMTZkMGQ1ZGY3MjNmN2UxMzkxMzhhMDA0MDYzOTY3MzciLCJpYXQiOiIxNjIxMzA4Nzg5LjM2NTAzMSIsIm5iZiI6IjE2MjEzMDg3ODkuMzY1MDQxIiwiZXhwIjoiMTY1Mjg0NDc4OS4zNTg0OTkiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.rv0eyuoIIegNfpdt4IgoluJsU778682xjitQZ6Wa9L_77loczqa-5CdxcJtpMjeiI6WfvKQ8XU5RkkfkBB8TBIbnIWxXaoZ64MydBaqBQeJeE0kENcHepolw83IqbOpMSSD1c5m4HpqLlDxsut5yK8uwUnC0JpewJPJKrqtUS-RUKfLqUTwh9shMI8NnmyE0CcxitprJ8fHjBiCmlNh5JoLP1vNldLWdJJ-vieNIycZwp7YR8XcWuHlcmmqcur2UPnr9hXte25UTLNqkm_H7uM643SBC_UtQLuv1a8MThSaWeBY869t8Bo1-Z15yrJWUH4eknIhOryHkTw3JQOoBBAQJyPrbN8ob-p_SO92kobUPHw5hAAt_N5ep7nOuFCocf6_CWFKl2Myo5CWug3qPkMfO60SqEtF1n63W_rdwp--DKs9xAsqxvM5GGOb48yagR25gCaQ6Nt92cJj2sGUVBGwWDmZpSG2l5MwRutlYzjZPbnnN0hdZFJRmz7QKA4i1Au0IVPTcQ5D_4l1SSdbu66aydRd5JT0nz6KUwZRksr_XMt5qwTkLbXWrJnW4a-gLCZAbIwtSxtR6j-AXX4jjsmesDn89Nu_0SrzU6_DdSlV1GA9wP_mnRNbaJsF3pr_BGeVtTylVWdhqmF062jsCMnMu2IO6o7Zy94zIZSma6tU",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"key": "Accept",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -127,40 +139,83 @@
 					"response": []
 				},
 				{
-					"name": "Ganti Password Pengguna",
+					"name": "Keluar Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTRmNWI4OTIyMmRjOTI0NTBmMmViODUzZTEyOTA0OGYxZWRmYzM3NmNkYmFiYmUyMTZkMGQ1ZGY3MjNmN2UxMzkxMzhhMDA0MDYzOTY3MzciLCJpYXQiOiIxNjIxMzA4Nzg5LjM2NTAzMSIsIm5iZiI6IjE2MjEzMDg3ODkuMzY1MDQxIiwiZXhwIjoiMTY1Mjg0NDc4OS4zNTg0OTkiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.rv0eyuoIIegNfpdt4IgoluJsU778682xjitQZ6Wa9L_77loczqa-5CdxcJtpMjeiI6WfvKQ8XU5RkkfkBB8TBIbnIWxXaoZ64MydBaqBQeJeE0kENcHepolw83IqbOpMSSD1c5m4HpqLlDxsut5yK8uwUnC0JpewJPJKrqtUS-RUKfLqUTwh9shMI8NnmyE0CcxitprJ8fHjBiCmlNh5JoLP1vNldLWdJJ-vieNIycZwp7YR8XcWuHlcmmqcur2UPnr9hXte25UTLNqkm_H7uM643SBC_UtQLuv1a8MThSaWeBY869t8Bo1-Z15yrJWUH4eknIhOryHkTw3JQOoBBAQJyPrbN8ob-p_SO92kobUPHw5hAAt_N5ep7nOuFCocf6_CWFKl2Myo5CWug3qPkMfO60SqEtF1n63W_rdwp--DKs9xAsqxvM5GGOb48yagR25gCaQ6Nt92cJj2sGUVBGwWDmZpSG2l5MwRutlYzjZPbnnN0hdZFJRmz7QKA4i1Au0IVPTcQ5D_4l1SSdbu66aydRd5JT0nz6KUwZRksr_XMt5qwTkLbXWrJnW4a-gLCZAbIwtSxtR6j-AXX4jjsmesDn89Nu_0SrzU6_DdSlV1GA9wP_mnRNbaJsF3pr_BGeVtTylVWdhqmF062jsCMnMu2IO6o7Zy94zIZSma6tU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/keluar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"keluar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ganti Password Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTRmNWI4OTIyMmRjOTI0NTBmMmViODUzZTEyOTA0OGYxZWRmYzM3NmNkYmFiYmUyMTZkMGQ1ZGY3MjNmN2UxMzkxMzhhMDA0MDYzOTY3MzciLCJpYXQiOiIxNjIxMzA4Nzg5LjM2NTAzMSIsIm5iZiI6IjE2MjEzMDg3ODkuMzY1MDQxIiwiZXhwIjoiMTY1Mjg0NDc4OS4zNTg0OTkiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.rv0eyuoIIegNfpdt4IgoluJsU778682xjitQZ6Wa9L_77loczqa-5CdxcJtpMjeiI6WfvKQ8XU5RkkfkBB8TBIbnIWxXaoZ64MydBaqBQeJeE0kENcHepolw83IqbOpMSSD1c5m4HpqLlDxsut5yK8uwUnC0JpewJPJKrqtUS-RUKfLqUTwh9shMI8NnmyE0CcxitprJ8fHjBiCmlNh5JoLP1vNldLWdJJ-vieNIycZwp7YR8XcWuHlcmmqcur2UPnr9hXte25UTLNqkm_H7uM643SBC_UtQLuv1a8MThSaWeBY869t8Bo1-Z15yrJWUH4eknIhOryHkTw3JQOoBBAQJyPrbN8ob-p_SO92kobUPHw5hAAt_N5ep7nOuFCocf6_CWFKl2Myo5CWug3qPkMfO60SqEtF1n63W_rdwp--DKs9xAsqxvM5GGOb48yagR25gCaQ6Nt92cJj2sGUVBGwWDmZpSG2l5MwRutlYzjZPbnnN0hdZFJRmz7QKA4i1Au0IVPTcQ5D_4l1SSdbu66aydRd5JT0nz6KUwZRksr_XMt5qwTkLbXWrJnW4a-gLCZAbIwtSxtR6j-AXX4jjsmesDn89Nu_0SrzU6_DdSlV1GA9wP_mnRNbaJsF3pr_BGeVtTylVWdhqmF062jsCMnMu2IO6o7Zy94zIZSma6tU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"key": "Accept",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "passwordlama",
-									"value": "12345678",
-									"type": "text"
-								},
-								{
-									"key": "passwordbaru1",
-									"value": "123456789",
-									"type": "text"
-								},
-								{
-									"key": "passwordbaru2",
-									"value": "123456789",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"passwordlama\": \"123456789\",\n    \"passwordbaru1\": \"123456789\",\n    \"passwordbaru2\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/gantipassword",
@@ -182,18 +237,28 @@
 				},
 				{
 					"name": "Reset Passwod Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "ariqi@gmail.com",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"aldi@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/kirimpermintaanresetpassword",
@@ -220,17 +285,32 @@
 			"item": [
 				{
 					"name": "Lihat Uang",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGEwMTJjZTBmMDA0ZjNiZjU1NGU5MGRjMmM2YjljZmZkZTc3NDAwYjRjMGQxNTdjY2QxYzczMzU1ZDNlZGJkODI4NTUzMmU1MWEyMTYxMTciLCJpYXQiOiIxNjIxMzExOTUyLjEzMjg1OSIsIm5iZiI6IjE2MjEzMTE5NTIuMTMyODYzIiwiZXhwIjoiMTY1Mjg0Nzk1Mi4xMjk5ODkiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.EGpyUPB47y5zTG3KC3EcAOZO0NkMvJvGZOypVLsm-yQr-D8hMaqstL_mUEsLO0ufWXPlwVzJVPn4NZYc3TXGXZ_GLlBeyMqDrujIH9YI4pzQ12bPHl2pzVUAMpAqMYy1S_Rwe8bePuCrC56pzebJZZDUMewswNLR1VKKFgoXsoEQ_CqyFhvEMJ9-Itphfy5LSfYdHeRrV7WDxfNhRwGODu5-dqBQu2gJQQEFmlqO2t6GNjcwo_FsZsgSRx7-bBjpPB20yBBi5TabiepVs1ounMUGob981bOikeibHd2mrl5bnMMI75jVlGruONU2_igdfUAPQRCM7QEYyPzw0y8886QhgMY6C-s6PDH6m2nOQLFV1sh148YV8ZeI_MNwPQs4uwj-Wqo0HJi6X40qKkiEDjxAjcwMU1D3ApPuYUyiTPbV7vp29cqAkSi_nxIezSF7Lq913aDjufV7kaO1LtYcIi8CK1AGzw5TJEC7JZZZcWLvE8Rr3_cm0BgM1NjGusZZOZFoNjBQCVC_8SWmWbDyBBxU7nAnTOCSYwwh0KPIXUs_2IpU5tCmiRw6IfiVGVjmI59rSGEpkVCGB__FV_Ctukiq60QaeG7FI-phsHDAwgVYQmAoyAtdJf4PAbstlsdBjA27BWCTwgNv4W9TCDBymmgYL97R43847ixAr18exFk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"key": "Accept",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/lihatuang/1",
+							"raw": "http://127.0.0.1:8000/api/lihatuang",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -241,8 +321,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"lihatuang",
-								"1"
+								"lihatuang"
 							]
 						}
 					},
@@ -250,34 +329,38 @@
 				},
 				{
 					"name": "Tambah Pemasukan / Pengeluaran",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiN2U3YmNiMDlmZDZmZDFmODQxMjE5YTFjZjU4N2YzOWU5NDcxN2QxZGE0ZmYzNGNiMTA0ZDYzMTAxYTcwODgxYWM2NTkxOTg4YzkyOTNjZTMiLCJpYXQiOiIxNjIxMzExNDk2LjI4MDI5MCIsIm5iZiI6IjE2MjEzMTE0OTYuMjgwMjk2IiwiZXhwIjoiMTY1Mjg0NzQ5Ni4yNzQwODgiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.3zgRTO2IlpT_k5eNkvDceuEDxOWg3rw1JHh88_P7nH1sMLR-HcF7f7iKbX75UzbVdxiVX_afjs6Y5kTn2oz896VJwE2DkM1uY3JmTezk2rrCLIW0-bWEdAtdESGYWtbI0j3eXjfpL-i9aBfK3Fvi7_GN-p_zI1Zv8zNTNKstdnqftKyfVRzsCta8w3dTHjbCnyKwClLYbAzgV_WccR0Wn4w5XT5wdzBc83INt-Kc1sK9heLFt-Ej5VKWXnZ5sVI-hGXEAXrc91FvNJGmMU0tHTdGDfd2hNEgvCFSsFrg7zPZI1IBShc7FuyZK5YjtGqgmGynfQ56Orc1_KsvMAmGZ2WtmTdSilBfC3romGQodAdLQDHrxpe4xmU_CGwBiH1OFX00uq0QBNd7OEqY7bFWuSDlg5qGT-hqoYiitwd6HxjmAsAMDjA2jyuqz7dU73np2qA5AtxTD2pkXkFtxAs9ufj6SdhjHTwZTk242g_8irLBir6Gf3VDoQ9ilXXcLYahA2KKT6MJF5fvxufowD2p_8_XIlETMProbtCvjZI33bfbMynwF-pwI9M7jCbZyZOaOPgByJYM1UmCutuqMV2LHxV8TV9OajIwIWTOom2boVpOy-VF8hNPYsq6NONJtuoYEqNO7UoqPL_aYkg-MCVDwAMsztd00O8pvJ9dtIyTQbM",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTRhNTY4OGRkZmMzMzcwNzRiMzcwMWViZjZhYWEzMTA1ZTQ3MjJiNmJiMjc0MjYxNTE5MjRlMjBiNzVmMDBkNDVkM2YwOWI4NTUxZjhhNTAiLCJpYXQiOiIxNjE0ODQ4MDYxLjk3MTQxNCIsIm5iZiI6IjE2MTQ4NDgwNjEuOTcxNDE4IiwiZXhwIjoiMTY0NjM4NDA2MS45Njg2MTkiLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.5ABoJNcFTgUN-ExifUn42TCsjiThfnngApNP9P77h0LoH4EDa9Z5QxmK4h4U4nvBeaBsl4lrsqCpb14U3TTz2ZSbx_dzTi7J54u5ow-RqAogkVOWPLDxZWSMpPLXW786Ggoa9RsWJmqAWOJvZ1O6U3Ag6YD5h-2UUoDY5QasPn6CJAEqOcWxrr2li1SUUHueH7JRmxO6gD4lkViuXfhch-C_XW0PuSpsXa7GjN2wA0bQewU5XNRnZZTCO2k4Y9WFzUAmxd18QZb3Yt88Dd_Rrq9ds5ZNx7-cqwFYvqKdhBmNUoSEhU1Z7_AUxX6oiTqvJENjx2rwv2H4TBz6g9dH3yDJ1cz5std5c2rAc-pikmTOGnpGTMmv8xY_yb4GFOIif2oReJ1r7lBRPNy_He-c7Qce965jz7WH-40f_WjedPvm5vLwgrIB5wLnxnWErnQNSafkcaD6LssICiwgn-i7ej2blFIQGe4iNBtVdnult5OhM5Wy5oVZgoCuMPqoTQ_81ftjsPVOyMIFNsFF7KbYKbvLBZ72FgWYOahRlqZBLLdjZkjhRYRjvQwElOh-q5uRbrcoHsR7XOX6Odv0Teu7IcuPA-XjcFe-vE0qy5-4nkINjnriA3YNcUPMJ5eYQ1sbJcDBeBr7IscpdaJUk-pcX6YexUf_OEHYwScSWRqXH0Y",
+								"key": "Accept",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "jumlahcatatan",
-									"value": "1000000",
-									"type": "text"
-								},
-								{
-									"key": "jeniscatatan",
-									"value": "PENGELUARAN",
-									"type": "text"
-								},
-								{
-									"key": "user_id",
-									"value": "1",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"jumlahcatatan\": 500000,\n    \"jeniscatatan\": \"PEMASUKAN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/pemasukanpengeluaran",
@@ -296,14 +379,69 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Reset Catatan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGEwMTJjZTBmMDA0ZjNiZjU1NGU5MGRjMmM2YjljZmZkZTc3NDAwYjRjMGQxNTdjY2QxYzczMzU1ZDNlZGJkODI4NTUzMmU1MWEyMTYxMTciLCJpYXQiOiIxNjIxMzExOTUyLjEzMjg1OSIsIm5iZiI6IjE2MjEzMTE5NTIuMTMyODYzIiwiZXhwIjoiMTY1Mjg0Nzk1Mi4xMjk5ODkiLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.EGpyUPB47y5zTG3KC3EcAOZO0NkMvJvGZOypVLsm-yQr-D8hMaqstL_mUEsLO0ufWXPlwVzJVPn4NZYc3TXGXZ_GLlBeyMqDrujIH9YI4pzQ12bPHl2pzVUAMpAqMYy1S_Rwe8bePuCrC56pzebJZZDUMewswNLR1VKKFgoXsoEQ_CqyFhvEMJ9-Itphfy5LSfYdHeRrV7WDxfNhRwGODu5-dqBQu2gJQQEFmlqO2t6GNjcwo_FsZsgSRx7-bBjpPB20yBBi5TabiepVs1ounMUGob981bOikeibHd2mrl5bnMMI75jVlGruONU2_igdfUAPQRCM7QEYyPzw0y8886QhgMY6C-s6PDH6m2nOQLFV1sh148YV8ZeI_MNwPQs4uwj-Wqo0HJi6X40qKkiEDjxAjcwMU1D3ApPuYUyiTPbV7vp29cqAkSi_nxIezSF7Lq913aDjufV7kaO1LtYcIi8CK1AGzw5TJEC7JZZZcWLvE8Rr3_cm0BgM1NjGusZZOZFoNjBQCVC_8SWmWbDyBBxU7nAnTOCSYwwh0KPIXUs_2IpU5tCmiRw6IfiVGVjmI59rSGEpkVCGB__FV_Ctukiq60QaeG7FI-phsHDAwgVYQmAoyAtdJf4PAbstlsdBjA27BWCTwgNv4W9TCDBymmgYL97R43847ixAr18exFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resetcatatan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resetcatatan"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "Endpoint Utama",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://127.0.0.1:8000/",
 					"protocol": "http",
