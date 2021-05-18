@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
             );
 
             return response()->json([
-                $keterangan, 401
+                $keterangan
             ]);
         } else {
             $status = Password::sendResetLink(
@@ -39,7 +39,7 @@ class ResetPasswordController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 200
+                    $keterangan
                 ]);
             } else {
                 $keterangan = array(
@@ -48,7 +48,7 @@ class ResetPasswordController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 401
+                    $keterangan
                 ]);
             }
         }
@@ -64,7 +64,8 @@ class ResetPasswordController extends Controller
         $validasiInputan = FacadesValidator::make($request->all(), [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password1' => 'required|min:8',
+            'password2' => 'required|min:8|same:password1',
         ]);
 
         if ($validasiInputan->fails()) {

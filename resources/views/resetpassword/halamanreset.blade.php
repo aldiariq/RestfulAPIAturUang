@@ -42,7 +42,13 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode color-blue"></i></span>
-                                    <input id="password" name="password" placeholder="Password" class="form-control"  type="password">
+                                    <input id="password1" name="password" placeholder="Password Baru" class="form-control"  type="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode color-blue"></i></span>
+                                    <input id="password2" name="password" placeholder="Ulangi Password Baru" class="form-control"  type="password">
                                     </div>
                                 </div>
                                 <div class="form-group">

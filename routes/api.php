@@ -30,9 +30,8 @@ Route::post('/aksiresetpassword', [ResetPasswordController::class, 'aksiresetpas
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::post('/gantipassword', [AuthController::class, 'gantipassword']);
-    Route::get('/profil', function(Request $request){
-        return $request->user();
-    });
+    Route::get('/profil', [AuthController::class, 'profil']);
+    Route::get('/keluar', [AuthController::class, 'keluar']);
 
     Route::get('/lihatuang/{id}', [UtamaController::class, 'show']);
     Route::post('/pemasukanpengeluaran', [UtamaController::class, 'store']);

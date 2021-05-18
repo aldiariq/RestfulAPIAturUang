@@ -60,7 +60,7 @@ class UtamaController extends Controller
                         );
             
                         return response()->json([
-                            $keterangan, 200
+                            $keterangan
                         ]);
                     } else {
                         $keterangan = array(
@@ -69,7 +69,7 @@ class UtamaController extends Controller
                         );
             
                         return response()->json([
-                            $keterangan, 401
+                            $keterangan
                         ]);
                     }
                     
@@ -80,7 +80,7 @@ class UtamaController extends Controller
                     );
         
                     return response()->json([
-                        $keterangan, 401
+                        $keterangan
                     ]);
                 }
             } else if($request->jeniscatatan == "PENGELUARAN") {
@@ -91,7 +91,7 @@ class UtamaController extends Controller
                     );
         
                     return response()->json([
-                        $keterangan, 401
+                        $keterangan
                     ]);
                 }else {
                     $datauang->jumlahuang = $datauang->jumlahuang - $request->jumlahcatatan;
@@ -106,7 +106,7 @@ class UtamaController extends Controller
                             );
                 
                             return response()->json([
-                                $keterangan, 200
+                                $keterangan
                             ]);
                         } else {
                             $keterangan = array(
@@ -115,7 +115,7 @@ class UtamaController extends Controller
                             );
                 
                             return response()->json([
-                                $keterangan, 401
+                                $keterangan
                             ]);
                         }
                         
@@ -126,7 +126,7 @@ class UtamaController extends Controller
                         );
             
                         return response()->json([
-                            $keterangan, 401
+                            $keterangan
                         ]);
                     }
                     
@@ -139,7 +139,7 @@ class UtamaController extends Controller
             );
 
             return response()->json([
-                $keterangan, 401
+                $keterangan
             ]);
         }
     }
@@ -164,8 +164,7 @@ class UtamaController extends Controller
         );
 
         return response()->json(
-            $keterangan,
-            200
+            $keterangan
         );
     }
 
@@ -223,7 +222,7 @@ class UtamaController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 200
+                    $keterangan
                 ]);
             }else {
                 $keterangan = array(
@@ -232,7 +231,7 @@ class UtamaController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 401
+                    $keterangan
                 ]);
             }
         }else {
@@ -242,7 +241,7 @@ class UtamaController extends Controller
             );
 
             return response()->json([
-                $keterangan, 401
+                $keterangan
             ]);
         }
     }

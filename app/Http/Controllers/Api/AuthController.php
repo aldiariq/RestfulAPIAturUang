@@ -27,7 +27,7 @@ class AuthController extends Controller
             );
 
             return response()->json([
-                $keterangan, 401
+                $keterangan
             ]);
         } else {
 
@@ -42,7 +42,7 @@ class AuthController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 200
+                    $keterangan
                 ]);
             } else {
                 $keterangan = array(
@@ -51,7 +51,7 @@ class AuthController extends Controller
                 );
     
                 return response()->json([
-                    $keterangan, 401
+                    $keterangan
                 ]);
             }
         }
@@ -73,8 +73,7 @@ class AuthController extends Controller
             );
 
             return response()->json(
-                $keterangan,
-                401
+                $keterangan
             );
         } else {
             $datamasuk = array(
@@ -96,8 +95,7 @@ class AuthController extends Controller
                     );
 
                     return response()->json(
-                        $keterangan,
-                        200
+                        $keterangan
                     );
                 } else {
                     $keterangan = array(
@@ -108,8 +106,7 @@ class AuthController extends Controller
                     );
 
                     return response()->json(
-                        $keterangan,
-                        401
+                        $keterangan
                     );
                 }
             } else {
@@ -121,8 +118,7 @@ class AuthController extends Controller
                 );
 
                 return response()->json(
-                    $keterangan,
-                    401
+                    $keterangan
                 );
             }
         }
@@ -144,8 +140,7 @@ class AuthController extends Controller
             );
 
             return response()->json(
-                $keterangan,
-                401
+                $keterangan
             );
         } else {
             $datadaftar = array(
@@ -183,8 +178,7 @@ class AuthController extends Controller
                     );
 
                     return response()->json(
-                        $keterangan,
-                        200
+                        $keterangan
                     );
                 } else {
                     $keterangan = array(
@@ -193,8 +187,7 @@ class AuthController extends Controller
                     );
 
                     return response()->json(
-                        $keterangan,
-                        401
+                        $keterangan
                     );
                 }
             } else {
@@ -204,16 +197,19 @@ class AuthController extends Controller
                 );
 
                 return response()->json(
-                    $keterangan,
-                    401
+                    $keterangan
                 );
             }
         }
     }
 
+    public function profil(Request $request)
+    {
+        return $request->user();
+    }
+
     public function gantipassword(Request $request){
         $validasiInputan = FacadesValidator::make($request->all(), [
-            'id' => 'required',
             'passwordlama' => 'required',
             'passwordbaru1' => 'required',
             'passwordbaru2' => 'required|same:passwordbaru1'
@@ -226,10 +222,10 @@ class AuthController extends Controller
             );
 
             return response()->json([
-                $keterangan, 401
+                $keterangan
             ]);
         } else {
-            $datauser = User::find($request->id)->first();
+            $datauser = User::find($request->user()->id)->first();
 
             if (Hash::check($request->passwordlama, $datauser->password)) {
                 $datauser->password = bcrypt($request->passwordbaru1);
@@ -241,7 +237,7 @@ class AuthController extends Controller
                     );
     
                     return response()->json([
-                        $keterangan, 200
+                        $keterangan
                     ]);
                 } else {
                     $keterangan = array(
@@ -250,7 +246,7 @@ class AuthController extends Controller
                     );
     
                     return response()->json([
-                        $keterangan, 401
+                        $keterangan
                     ]);
                 }
                 
@@ -261,9 +257,24 @@ class AuthController extends Controller
                 );
 
                 return response()->json([
-                    $keterangan, 401
+                    $keterangan
                 ]);
             }
+        }
+    }
+
+    public function keluar(Request $request)
+    {
+        if ($request->user()->tokens()->delete()) {
+            return response()->json([
+                "status" => true,
+                "message" => "Berhasil Keluar"
+            ]);
+        } else {
+            return response()->json([
+                "status" => false,
+                "message" => "Gagal Keluar"
+            ]);
         }
     }
 }
